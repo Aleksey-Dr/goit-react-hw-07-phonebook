@@ -2,35 +2,49 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import shortid from 'shortid';
 
-import contacts from '../data/contacts'
+import { fetchContacts } from './operations';
 
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState: {
-        contacts: contacts,
+        items: [],
+        isLoading: false,
+        error: null,
+    },
+    extraReducers: {
+        [fetchContacts.pending](state) {
+            state.isLoading = true;
+        },
+        [fetchContacts.fulfilled](state, action) {
+            state.isLoading = false;
+            state.error = null;
+            state.items = action.payload;
+        },
+        [fetchContacts.rejected](state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     },
     reducers: {
         addContact(state, action) {
 
             let includesName = false;
-            state.contacts.map(contact => {
+            state.items.map(contact => {
                 contact.name === action.payload.name && (includesName = true);
-                console.log(contact.name);
-                console.log(action.payload.name);
                 return includesName;
             });
 
             includesName
-                ? alert(state.contacts.name + ' is already in contacts')
-                : state.contacts.push({
+                ? alert(state.items.name + ' is already in contacts')
+                : state.items.push({
                     id: shortid.generate(),
                     name: action.payload.name,
-                    number: action.payload.number,
+                    phone: action.payload.number,
                 });
         },
 
         deleteContact(state, action) {
-            state.contacts = state.contacts.filter(contact =>
+            state.items = state.items.filter(contact =>
                 contact.id !== action.payload.id);
         },
     },

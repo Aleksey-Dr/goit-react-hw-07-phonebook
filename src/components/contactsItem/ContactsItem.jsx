@@ -10,7 +10,6 @@ const ContactsItem = ({ id, name, number }) => {
 
   const despatch = useDispatch();
 
-
   return (
     <>
       <li className={clsx(css['contacts-item'])}>

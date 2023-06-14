@@ -23,4 +23,16 @@ III. Adding and configuring basic tools
 8. npm i redux.
 9. npm i redux-persist.
 
-IV. Copied all components from goit-react-hw-04-phonebook
+IV. Copied all components from goit-react-hw-06-phonebook
+
+V. Changed state
+1. Changed contactsSlice in the contactsSlice.js.
+2. Changed <ContactList>.
+
+VI. Remove a reading at LocaleStorage.
+
+VII. Added operations #1
+1. Create an operations.js in the "redux" folder.
+2. npm i axios.
+3. Created "fetchContacts" operations.
+4. npm i react-loader-spinner.
