@@ -6,7 +6,7 @@ import ContactsItem from '../contactsItem';
 import Loader from '../loader';
 
 import { fetchContacts } from '../../redux/operations';
-import { getContacts } from '../../redux/selectors';
+import { selectContacts, selectItems, selectFilter } from '../../redux/selectors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -15,9 +15,9 @@ const ContactList = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  const filter = useSelector(state => state.filter.value);
-  const contacts = useSelector(getContacts);
-  const { isLoading, error } = useSelector(state => state.contacts);
+  const filter = useSelector(selectFilter);
+  const contacts = useSelector(selectItems);
+  const { isLoading, error } = useSelector(selectContacts);
 
   const normalizedFilter = filter.toLowerCase();
   const filterContacts = contacts.filter(contact =>

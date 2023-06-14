@@ -48,3 +48,7 @@ X. Added operations #3
 1. Created "deleteContact" operations.
 
 Fixed the operations of "addContact".
+
+XI. Added selectors
+1. Shortened code of contactsSlice.js.
+2. Added selectors.

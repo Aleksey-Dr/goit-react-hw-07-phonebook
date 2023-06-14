@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 
 import clsx from 'clsx';
-
 import css from './Filter.module.css';
 
 import { changeFilter } from '../../redux/filterSlice';

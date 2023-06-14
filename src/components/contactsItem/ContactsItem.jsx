@@ -14,7 +14,7 @@ const ContactsItem = ({ id, name, number }) => {
     <>
       <li className={clsx(css['contacts-item'])}>
         <span>
-          {name}: {number}
+          <span className={clsx(css.name)}>{name}:</span> {number}
         </span>
         <button type="button" onClick={() => despatch(deleteContact({id}))}>
           Delete

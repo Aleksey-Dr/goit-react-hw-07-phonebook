@@ -1,10 +1,22 @@
 .contacts-item {
+    display: flex;
+    width: 340px;
+    height: 25px;
     margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.name {
+    margin-right: 10px;
+    font-style: italic;
 }
 
 .contacts-item button {
-    margin-left: 20px;
+    display: block;
+    height: 20px;
+    margin-left: auto;
     background-color:rgb(255, 255, 255);
     border: none;
     box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.25);
+    color: red;
 }
