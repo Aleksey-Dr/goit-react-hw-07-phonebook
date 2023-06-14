@@ -27,7 +27,7 @@ const ContactList = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      {error && <p>{error}</p>}
+      {error && <p><b>Error: </b>{error}</p>}
       <ul>
         {filterContacts.map(({ id, name, phone }) => {
           return <ContactsItem key={id} id={id} name={name} number={phone} />;

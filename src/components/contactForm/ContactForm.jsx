@@ -10,7 +10,7 @@ import { addContact } from '../../redux/operations';
 const ContactForm = () => {
 
   const despatch = useDispatch();
-  const onAddContact = (name, number) => despatch(addContact(name, number));
+  const onAddContact = (name, number, id) => despatch(addContact(name, number, id));
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');

@@ -43,3 +43,8 @@ VIII. Added selectors
 
 IX. Added operations #2
 1. Created "addContact" operations.
+
+X. Added operations #3
+1. Created "deleteContact" operations.
+
+Fixed the operations of "addContact".
