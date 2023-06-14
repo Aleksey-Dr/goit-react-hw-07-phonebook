@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import shortid from 'shortid';
 
-import { fetchContacts } from './operations';
+import { fetchContacts, addContact } from './operations';
 
 const contactsSlice = createSlice({
     name: 'contacts',
@@ -24,10 +24,13 @@ const contactsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
-    },
-    reducers: {
-        addContact(state, action) {
 
+        [addContact.pending](state) {
+            state.isLoading = true;
+        },
+        [addContact.fulfilled](state, action) {
+            state.isLoading = false;
+            state.error = null;
             let includesName = false;
             state.items.map(contact => {
                 contact.name === action.payload.name && (includesName = true);
@@ -42,6 +45,28 @@ const contactsSlice = createSlice({
                     phone: action.payload.number,
                 });
         },
+        [addContact.rejected](state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+    },
+    reducers: {
+        // addContact(state, action) {
+
+        //     let includesName = false;
+        //     state.items.map(contact => {
+        //         contact.name === action.payload.name && (includesName = true);
+        //         return includesName;
+        //     });
+
+        //     includesName
+        //         ? alert(state.items.name + ' is already in contacts')
+        //         : state.items.push({
+        //             id: shortid.generate(),
+        //             name: action.payload.name,
+        //             phone: action.payload.number,
+        //         });
+        // },
 
         deleteContact(state, action) {
             state.items = state.items.filter(contact =>
@@ -50,6 +75,6 @@ const contactsSlice = createSlice({
     },
 });
 
-export const { addContact, deleteContact } = contactsSlice.actions;
+export const { deleteContact } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

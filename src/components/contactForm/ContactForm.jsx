@@ -5,7 +5,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import css from './ContactForm.module.css';
 
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/operations';
 
 const ContactForm = () => {
 

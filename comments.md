@@ -36,3 +36,10 @@ VII. Added operations #1
 2. npm i axios.
 3. Created "fetchContacts" operations.
 4. npm i react-loader-spinner.
+
+VIII. Added selectors
+1. Create an selectors.js in the "redux" folder.
+2. Added selector "getContacts".
+
+IX. Added operations #2
+1. Created "addContact" operations.
