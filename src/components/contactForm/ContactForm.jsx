@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useState } from 'react';
 
@@ -6,10 +6,12 @@ import clsx from 'clsx';
 import css from './ContactForm.module.css';
 
 import { addContact } from '../../redux/operations';
+import { selectItems } from '../../redux/selectors';
 
 const ContactForm = () => {
 
   const despatch = useDispatch();
+  const contacts = useSelector(selectItems);
   const onAddContact = (name, number, id) =>
     despatch(addContact(name, number, id));
 
@@ -33,6 +35,12 @@ const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    if (contacts.find(contact =>
+      contact.name === name)) {
+        alert(name + ' is already in contacts');
+        return;
+      }
 
     onAddContact({ name, number });
 

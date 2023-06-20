@@ -52,3 +52,7 @@ Fixed the operations of "addContact".
 XI. Added selectors
 1. Shortened code of contactsSlice.js.
 2. Added selectors.
+
+XII. Fixed and Changed
+1. Fixed show name.
+2. Changed to "Builder Methods".
